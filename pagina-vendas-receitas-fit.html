@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Receitas Fit Sem Complicação | Cardápio de 7 dias + 20 receitas</title>
+<meta name="description" content="Cardápio pronto de 7 dias, 20 receitas simples, lista de compras e preparo de domingo para comer bem na correria.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,600&family=Nunito:wght@400;600;700&display=swap">
+<style>
+:root{--green:#1F4D38;--green-d:#173B2B;--orange:#E3752F;--orange-d:#C95F1B;--cream:#FAF7F0;--sage:#E8F0E3;--ink:#1B2B23;--mute:#5B6B62;--line:#E4DFD2;box-sizing:border-box}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Nunito,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;line-height:1.15;margin:0}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h2{font-size:clamp(1.7rem,4vw,2.3rem);color:var(--green);margin-bottom:12px}
+.lead{color:var(--mute);max-width:620px;margin:0 0 32px}
+.btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:16px 28px;border-radius:999px;font-size:1.05rem;transition:background .15s}
+.btn:hover{background:var(--orange-d)}
+.btn:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.note{font-size:.9rem;color:var(--mute)}
+
+/* aviso de configuração (some quando o link é cadastrado) */
+#setup{display:none;background:#FFF3C4;color:#5A4500;padding:10px 16px;text-align:center;font-size:.9rem;font-weight:600}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--green-d),var(--green));color:#fff;padding:56px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.tag{display:inline-block;background:var(--orange);font-weight:700;font-size:.85rem;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800}
+.hero h1 em{color:#FFB070;font-weight:600}
+.hero p.sub{font-size:1.15rem;color:#DCE8DF;max-width:520px;margin:18px 0 26px}
+.hero .note{color:#BFD2C5;margin-top:12px}
+.cover{justify-self:center;width:min(300px,80%);aspect-ratio:3/4;border-radius:14px;background:linear-gradient(170deg,#2C6A4D,#102B20);box-shadow:0 24px 50px rgba(0,0,0,.35);padding:28px 22px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transform:rotate(2deg)}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cover .ct{position:relative}
+.cover small{background:var(--orange);padding:4px 10px;border-radius:999px;font-weight:700;font-size:.72rem}
+.cover b{display:block;font-family:Fraunces,Georgia,serif;font-size:1.9rem;line-height:1.05;margin-top:12px}
+.cover b i{color:#FFB070;font-weight:600}
+.cover.has-img .ct{display:none}
+
+/* conteúdo */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:1.15rem;color:var(--green);margin-bottom:6px}
+.card p{margin:0;color:var(--mute);font-size:.97rem}
+.ico{font-size:1.6rem;display:block;margin-bottom:8px}
+
+/* amostra do cardápio */
+.sample{background:var(--sage)}
+.day{background:#fff;border-radius:14px;padding:22px;max-width:560px;border-left:6px solid var(--orange)}
+.day h3{margin-bottom:12px;color:var(--green)}
+.day div{display:flex;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.day div:first-of-type{border-top:0}
+.day span{min-width:78px;font-weight:700;font-size:.82rem;color:var(--orange-d);padding-top:2px}
+
+/* público */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.two ul{margin:10px 0 0;padding-left:20px;color:var(--mute)}
+.two li{margin-bottom:6px}
+
+/* oferta */
+.offer{background:var(--green);color:#fff;text-align:center;border-radius:22px;padding:48px 24px;max-width:640px;margin:0 auto}
+.offer h2{color:#fff}
+.price{font-family:Fraunces,Georgia,serif;font-size:3.4rem;font-weight:800;margin:10px 0 4px;color:#FFB070}
+.offer ul{list-style:none;padding:0;margin:20px auto 28px;max-width:360px;text-align:left}
+.offer li{padding:6px 0 6px 28px;position:relative}
+.offer li::before{content:"✓";position:absolute;left:0;color:#FFB070;font-weight:800}
+.offer .note{color:#BFD2C5;margin-top:14px}
+
+/* faq */
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;color:var(--green)}
+details p{margin:10px 0 0;color:var(--mute)}
+footer{padding:36px 0 110px;color:var(--mute);font-size:.85rem;text-align:center}
+footer p{max-width:700px;margin:0 auto 10px}
+
+/* barra fixa no celular */
+.bar{display:none}
+@media (max-width:760px){
+  .hero .wrap,.two{grid-template-columns:1fr}
+  .cover{order:-1;width:min(220px,60%)}
+  section{padding:48px 0}
+  .bar{display:flex;position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));gap:12px;align-items:center;justify-content:space-between;z-index:5}
+  .bar b{font-family:Fraunces,Georgia,serif;font-size:1.3rem;color:var(--green)}
+  .bar .btn{padding:12px 22px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div id="setup">⚙️ Falta cadastrar o link de pagamento: abra este arquivo e edite <code>paymentLink</code> no bloco CONFIG, perto do final.</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">E-book · Cardápio de 7 dias</span>
+      <h1>Receitas Fit <em>Sem Complicação</em></h1>
+      <p class="sub">Um cardápio pronto de 7 dias, 20 receitas simples e a lista de compras da semana, para você parar de decidir o que comer todo dia.</p>
+      <a class="btn" data-buy href="#oferta">Quero meu e-book por <span data-price>R$ 37</span></a>
+      <p class="note">Acesso imediato por e-mail · Pagamento seguro · Garantia de 7 dias</p>
+    </div>
+    <div class="cover" id="cover">
+      <div class="ct"><small>E-book · Cardápio de 7 dias</small><b>Receitas Fit <i>Sem Complicação</i></b></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Chega de pedir qualquer coisa no fim do dia</h2>
+    <p class="lead">Você chega cansado, abre a geladeira e não sabe o que fazer. Com o cardápio, a lista de compras e as receitas já organizadas, comer bem deixa de ser decisão diária e vira rotina.</p>
+    <div class="grid">
+      <div class="card"><span class="ico">📅</span><h3>Cardápio de 7 dias</h3><p>Café da manhã, almoço, lanche e jantar de segunda a domingo, já montados.</p></div>
+      <div class="card"><span class="ico">🍳</span><h3>20 receitas simples</h3><p>Café da manhã, almoço e jantar, lanches e sobremesas, com ingredientes de qualquer mercado.</p></div>
+      <div class="card"><span class="ico">🛒</span><h3>Lista de compras</h3><p>Tudo o que comprar de uma vez, organizado por seção do mercado.</p></div>
+      <div class="card"><span class="ico">🥡</span><h3>Preparo de domingo</h3><p>Em 1h30 você adianta a semana e ganha porções que rendem marmita.</p></div>
+      <div class="card"><span class="ico">🍽️</span><h3>Prato equilibrado</h3><p>Uma regra visual para montar refeições sem balança e sem contar nada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sample">
+  <div class="wrap">
+    <h2>Um dia do cardápio, para você ver como funciona</h2>
+    <p class="lead">Cada refeição indica o número da receita no e-book. Qualquer almoço pode virar jantar, e o contrário também.</p>
+    <div class="day">
+      <h3>Segunda-feira</h3>
+      <div><span>CAFÉ</span>Panqueca de banana e aveia</div>
+      <div><span>ALMOÇO</span>Frango ao limão com legumes assados</div>
+      <div><span>LANCHE</span>Iogurte com frutas e chia</div>
+      <div><span>JANTAR</span>Sopa cremosa de abóbora com frango</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div class="card">
+      <h3>Para quem é</h3>
+      <ul>
+        <li>Quem chega cansado e acaba pedindo delivery</li>
+        <li>Quem quer se organizar, mas não sabe por onde começar</li>
+        <li>Quem cozinha pouco e precisa de receitas rápidas</li>
+        <li>Quem quer deixar marmitas prontas para a semana</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>O que este e-book não é</h3>
+      <ul>
+        <li>Não é dieta milagrosa e não promete resultado</li>
+        <li>Não substitui nutricionista ou médico</li>
+        <li>Não traz plano individualizado nem contagem de calorias</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="oferta">
+  <div class="wrap">
+    <div class="offer">
+      <h2>Receitas Fit Sem Complicação</h2>
+      <div class="price" data-price>R$ 37</div>
+      <p class="note" style="margin:0">Pagamento único · sem mensalidade</p>
+      <ul>
+        <li>Cardápio completo de 7 dias</li>
+        <li>20 receitas passo a passo</li>
+        <li>Lista de compras da semana</li>
+        <li>Guia de preparo de domingo</li>
+        <li>E-book em PDF, para ler no celular</li>
+      </ul>
+      <a class="btn" data-buy href="#oferta">Quero meu e-book agora</a>
+      <p class="note"><b>Garantia de 7 dias:</b> se não gostar, peça o reembolso e devolvemos o valor.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <p class="lead">Ficou com alguma dúvida? Veja se está aqui.</p>
+    <details><summary>Como recebo o e-book?</summary><p>Assim que o pagamento for confirmado, você recebe o acesso por e-mail. O material é um PDF que abre no celular, tablet ou computador.</p></details>
+    <details><summary>O e-book substitui o acompanhamento com nutricionista?</summary><p>Não. O material é informativo e educativo. Quem tem alergia, intolerância, diabetes, está grávida ou tem qualquer condição de saúde deve ajustar as receitas com um profissional.</p></details>
+    <details><summary>As receitas têm restrições?</summary><p>Elas usam ingredientes comuns, como ovos, iogurte, queijo, aveia, tapioca e castanhas. Se você tem alguma restrição alimentar, adapte com orientação profissional.</p></details>
+    <details><summary>O e-book traz calorias de cada receita?</summary><p>Não. O foco é organização: cardápio, lista de compras e receitas práticas.</p></details>
+    <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. É só pedir o reembolso pelo canal de suporte.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Este material tem caráter informativo e educativo e não substitui o acompanhamento de nutricionista ou médico. Os resultados variam de pessoa para pessoa e não são garantidos.</p>
+    <p id="support"></p>
+    <p>© <span id="year"></span> Receitas Fit Sem Complicação. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<div class="bar"><b data-price>R$ 37</b><a class="btn" data-buy href="#oferta">Quero meu e-book</a></div>
+
+<script>
+/* ============================================================
+   CONFIGURAÇÃO: edite só este bloco
+   ============================================================ */
+var CONFIG = {
+  // Cole aqui o link de pagamento (Hotmart, Kiwify, Eduzz, Cakto, Pix etc.)
+  paymentLink: "",
+  // Preço exibido na página
+  price: "R$ 37",
+  // (Opcional) URL da imagem da capa do e-book. Deixe vazio para usar a capa em CSS.
+  coverImage: "",
+  // (Opcional) E-mail de suporte exibido no rodapé
+  supportEmail: ""
+};
+/* ============================================================ */
+
+(function () {
+  var link = (CONFIG.paymentLink || "").trim();
+
+  // preço
+  document.querySelectorAll("[data-price]").forEach(function (el) { el.textContent = CONFIG.price; });
+
+  // repassa UTMs da página para o checkout, se existirem
+  if (link && window.location.search) {
+    link += (link.indexOf("?") === -1 ? "?" : "&") + window.location.search.slice(1);
+  }
+
+  // botões de compra
+  document.querySelectorAll("[data-buy]").forEach(function (a) {
+    if (link) {
+      a.href = link;
+    } else {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.getElementById("setup").style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  });
+  if (!link) document.getElementById("setup").style.display = "block";
+
+  // capa com imagem
+  if (CONFIG.coverImage) {
+    var c = document.getElementById("cover"), img = new Image();
+    img.alt = "Capa do e-book Receitas Fit Sem Complicação";
+    img.onload = function () { c.classList.add("has-img"); c.insertBefore(img, c.firstChild); };
+    img.src = CONFIG.coverImage;
+  }
+
+  // suporte e ano
+  if (CONFIG.supportEmail) {
+    var s = document.getElementById("support");
+    s.textContent = "Suporte: ";
+    var m = document.createElement("a");
+    m.href = "mailto:" + CONFIG.supportEmail;
+    m.textContent = CONFIG.supportEmail;
+    s.appendChild(m);
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
